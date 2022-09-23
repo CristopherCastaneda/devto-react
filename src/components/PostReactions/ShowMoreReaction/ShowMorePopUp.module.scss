@@ -1,0 +1,21 @@
+.showMoreDropdown{
+    min-width: 250px;
+    position: absolute;
+    top: unset;
+    bottom: 100%;
+    z-index: 400;
+    left: 0;
+    right: 0;
+    background: white;
+    height: fit-content;
+    border: 1px solid #d6d6d7;
+    box-shadow: rgb(0 0 0 / 1%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px, rgb(0 0 0 / 1%) 0px 0px 0px 1px;
+    border-radius: 8px;
+}
+
+@media only screen and (min-width: 767px){
+    .showMoreDropdown{
+        top: 200px;
+        left: 60px;
+    }
+}
