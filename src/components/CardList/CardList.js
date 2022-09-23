@@ -31,7 +31,8 @@ const CardList = () => {
                     postDate={post.post_date}
                     postTitle={post.post_title} 
                     postBanner={postBanner}
-                    tags={tags}
+                    tags={[tags]}
+                    readTime={post.read_time}
                     nComments={comments.length}
                 />
             );
