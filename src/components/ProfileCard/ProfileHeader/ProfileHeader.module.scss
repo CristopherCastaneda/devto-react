@@ -1,0 +1,27 @@
+.cardProfileHeader{
+    margin-top: -1rem;
+    z-index: 9;
+    a{
+        color: #000;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 700;
+    }   
+    
+}
+.cardProfileAvatar{
+    margin-right: 10px;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;   
+    img{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        transform: translate(-50%, -50%);
+    }
+}
+
