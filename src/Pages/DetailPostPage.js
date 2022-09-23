@@ -6,6 +6,7 @@ import ReadNextList from '../components/ReadNextList/ReadNextList';
 import CardPostsListing from '../components/CardPostsListing/CardPostsListing';
 import styles from './Pages.module.scss';
 import PostReactions from '../components/PostReactions/PostReactions';
+import PostComments from '../components/PostComments/PostComments';
 
 const DetailPostPage = () => {
     const params = useParams();
@@ -18,7 +19,7 @@ const DetailPostPage = () => {
             setPost(post.data.post);            
         });
     },[]);
-    
+
     return (
         <>    
         <div className={`container p-3 ${styles.containerMain}`}>
@@ -30,6 +31,7 @@ const DetailPostPage = () => {
                 </div>
                 <div className='col-12 col-md-11 col-lg-8 '>
                     Detail
+                    {post && <PostComments comments={post.comments} postId={params.postId}/>}                    
                     <ReadNextList />
                 </div>
                 <div className='col-12 col-lg-3'>
