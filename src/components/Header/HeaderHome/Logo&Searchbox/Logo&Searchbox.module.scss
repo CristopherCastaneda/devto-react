@@ -1,0 +1,29 @@
+.logo{
+    .navbar-brand{
+        max-width: 50px;
+        max-height: 40px;
+    }
+    .btn-hamburger{
+        border: none;
+        background-color: transparent;
+        &:focus{
+            box-shadow: none;
+        }
+    }
+    .search{
+        min-width: 400px;
+        button{
+            background-color: rgb(255,255,255);
+            border: 1px solid rgb(206, 212, 218);
+            border-left: none;
+            svg path{
+                fill: currentColor;
+            } 
+            &:hover{
+                background-color: rgba(59,73,223,.1);
+                color: rgb(47,58,178);                        
+            } 
+        }
+    }
+    
+}
