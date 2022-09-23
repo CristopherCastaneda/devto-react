@@ -16,19 +16,23 @@ const CardList = () => {
     console.log("post", posts)
     return(
     <div>
-        {posts.map((post) => {
+        {posts.map((post, index) => {
             const {_id, user, tags, comments } = post;
+            let postBanner= index ===0 ? post.post_banner : null;
+            console.log("post", post)
             return (
                 <MainCard
                     id={_id}
                     key={_id}
                     userDescription= {user.descrption}
+                    userName={user.user_name}
                     userPhoto={user.profile_photo}
-                    postBody={comments.post_body}
-                    postDate={comments.post_date}
-                    postTitle={comments.post_title} 
-                    postBanner={comments.post_banner}
+                    postBody={post.post_body}
+                    postDate={post.post_date}
+                    postTitle={post.post_title} 
+                    postBanner={postBanner}
                     tags={tags}
+                    nComments={comments.length}
                 />
             );
         })}
