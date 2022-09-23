@@ -1,13 +1,14 @@
-import CardList from "./components/CardList/CardList";
+import DetailPostPage from "./Pages/DetailPostPage";
+import HomePage from "./Pages/HomePage";
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="col-12 col-md-9 col-lg-7">
-      <main>
-      <div className="container">
-        <CardList></CardList>
-      </div>
-      </main>
+    <div>
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>        
+        <Route path="detail/:postId" element={<DetailPostPage />} />
+      </Routes>
     </div>
   );
 }
