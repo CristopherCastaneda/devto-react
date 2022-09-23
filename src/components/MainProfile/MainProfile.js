@@ -9,7 +9,7 @@ const MainProfile = ({userPhoto}) => {
 </div>
   );
 };
-
+//main-profile rounded-circle overflow-hidden
 export default MainProfile;
 
 

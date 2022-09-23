@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./CardReationFooter.module.scss";
 
+
 const CardReationFooter = ({readTime}) => {
   return (
     <div className={`d-flex justify-content-between ${styles.cardReactions}`}>

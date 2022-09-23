@@ -6,7 +6,7 @@ const ReadNextListItem = ({photo, id, title, author, date}) => {
       <a href={`detail/${id}`}>
           <div className="d-flex justify-content-start align-items-center read-next-container">
               <div className={`${styles.readNext} rounded-circle`}>
-                  <img className='img-fluid' src={photo} />
+                  <img className='img-fluid'alt={""} src={photo} />
               </div>
               <div className="read-text p-3">
                   <h3 className="strong">{title}</h3>

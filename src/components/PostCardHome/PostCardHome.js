@@ -1,7 +1,7 @@
 import CardList from "../CardList/CardList";
 
 
-function App() {
+const PostCardHome=() => { 
   return (
     <div className="col-12 col-md-9 col-lg-7">
       <main>
@@ -11,4 +11,6 @@ function App() {
       </main>
      </div>
   )
-}
+};
+
+export default PostCardHome;
