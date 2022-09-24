@@ -3,8 +3,8 @@ import styles from "./SearchBox.module.scss"
 
 const SearchBox = () => {
     return (
-        <div className={ `d-none d-md-flex ${styles.search}`}>
-            <div className="input-group">
+        <div className={`${styles.search}`}>
+            <div className={`input-group ${styles.searchGroup}`}>
                 <input type="text" id="input-desktop-search" className="form-control border-end-0" placeholder="Search..."
                     ariaLabel="search" ariaDescribedBy="button-addon2" />
                 <button className={`${styles.btn} btn-outline-secondary`} type="button" id="btn-desktop-search">
