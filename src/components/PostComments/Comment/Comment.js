@@ -4,7 +4,7 @@ import styles from './Comment.module.scss'
 
 const Comment = ({author, date, content}) => {
   return (
-    <div class="comments-container d-flex align-items-start mt-3">
+    <div className="comments-container d-flex align-items-start mt-3">
             <span className={`${styles.avatar} rounded-circle me-3`}>
                 <img src="https://picsum.photos/id/237/40/40" />
             </span>

@@ -68,7 +68,7 @@ const CommentForm = ({comments, postId}) => {
         </div>
         <form onSubmit={handleSubmit}>
             <div className={styles.formCommentArea} tabindex="0">
-                <textarea onClick={changeDisplay} placeholder="Add to the discussion" class="form-control" aria-label="Add a comment to the discussion"
+                <textarea onClick={changeDisplay} placeholder="Add to the discussion" className="form-control" aria-label="Add a comment to the discussion"
                 id="comment" name="comment" value={comment} onChange={changeComment}>
                 </textarea>
                 <div className={`${display} d-flex gap-2 justify-content-between align-items-center px-2`}>
@@ -97,7 +97,7 @@ const CommentForm = ({comments, postId}) => {
                       </Button>
                   </div>                 
             </div>
-            <div class={`${display} mt-3 ${styles.formButtons}`}>
+            <div className={`${display} mt-3 ${styles.formButtons}`}>
                 <Button type="submit" variant="save-comment" disabled="">Submit</Button>
                 <Button type="button" variant="preview" disabled="">Preview</Button>
             </div>
