@@ -1,5 +1,5 @@
 .search{
-    min-width: 400px;
+    min-width: 300px;
     button{
         background-color: rgb(255,255,255);
         border: 1px solid rgb(206, 212, 218);
@@ -13,3 +13,14 @@
         } 
     }
 }
+.searchGroup{
+    button{
+        border-radius: 0 4px 4px 0;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .search{
+        min-width: 400px;
+    }
+  }

@@ -59,7 +59,7 @@ const LoginForm = () => {
                     <Link to="/" className="c-link c-link--branded">DEV Community 👩‍💻👨‍💻 </Link> is a community of 900,148 amazing developers
                 </p>
                 <SocialButtons />
-                <span> Have a password? Continue with your email address. </span>
+                <span className='d-block mt-3 text-center'> Have a password? Continue with your email address. </span>
                 <div className="mt-3">
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -74,9 +74,10 @@ const LoginForm = () => {
                             <Form.Check type="checkbox" label="Remember me" />
                         </Form.Group>
                         <Button variant="primary" type="submit">
-                            Submit
+                            Continue
                         </Button>
                     </Form>
+                    <p class={`${styles.forgotPassword} mt-4 text-center`}>I forgot my password</p>
                 </div>
             </div>   
         </div>            
