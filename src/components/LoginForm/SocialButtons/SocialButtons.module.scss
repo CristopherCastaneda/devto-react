@@ -1,10 +1,18 @@
 .forem{
-    button{
-        background-color: #0a3e4a;
+    background-color: #0a3e4a;
+    &:hover{
+        background-color: #0a3e4a !important;
     }
 }
 .twitter{
-    button{
-        background-color: #1da1f2;
+    background-color: #1da1f2;
+    &:hover{
+        background-color: #1da1f2 !important;
+    }
+}
+.black{    
+    background-color: black;
+    &:hover{
+        background-color: black !important;
     }
 }

@@ -1,0 +1,53 @@
+.btnLogin{
+    border: 0px;
+    color: #404040;
+    text-align: center;
+    text-size-adjust: 100%;
+    white-space: nowrap;
+    font-weight: 500;
+}
+.btnCreateAccount{
+    color: #3b49df;
+    border: 1px solid #3b49df;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 7px 15px;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 500;
+    &:hover{
+        color: white;
+        background-color: #3b49df;
+        border-color: #2f3ab2;
+        text-decoration: underline;
+    }
+}
+
+.mobileSearch{
+    position: absolute;
+    width: 100%;
+    top: 76px;
+    left: 0;
+    padding: 8px;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+.btnCreatePost{
+    color: #3b49df;
+    border: 1px solid #3b49df;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    text-size-adjust: 100%;
+    white-space: nowrap;
+    font-weight: 500;
+    &:hover{
+        color: white;
+        background-color: #3b49df;
+        border-color: #2f3ab2;
+        text-decoration: underline;
+    }
+}

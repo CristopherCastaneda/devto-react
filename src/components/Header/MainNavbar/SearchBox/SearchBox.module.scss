@@ -1,0 +1,26 @@
+.search{
+    min-width: 300px;
+    button{
+        background-color: rgb(255,255,255);
+        border: 1px solid rgb(206, 212, 218);
+        border-left: none;
+        /*svg path{
+            fill: currentColor;
+        } */
+        &:hover{
+            background-color: rgba(59,73,223,.1);
+            color: rgb(47,58,178);                        
+        } 
+    }
+}
+.searchGroup{
+    button{
+        border-radius: 0 4px 4px 0;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .search{
+        min-width: 400px;
+    }
+  }
