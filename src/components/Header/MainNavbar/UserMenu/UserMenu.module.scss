@@ -1,0 +1,29 @@
+.userMenu{
+    width: 100%;
+    position: absolute;
+    border: 1px solid #d6d6d7;
+    box-shadow: rgb(0 0 0 / 1%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px, rgb(0 0 0 / 1%) 0px 0px 0px 1px;
+    background-color: white;
+    top: 60px;
+    border-radius: 8px;
+    right: 0;
+   
+}
+.listItem {
+    margin-top: 10px;
+    padding: 8px;
+    &:hover{
+        color: #2f3ab2;
+        background-color: rgba(59, 73, 223, 0.1);
+        border-radius: 8px;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .userMenu{
+        width: 300px;
+        right: 50px;
+    }
+  }

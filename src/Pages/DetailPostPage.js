@@ -7,6 +7,7 @@ import CardPostsListing from '../components/CardPostsListing/CardPostsListing';
 import styles from './Pages.module.scss';
 import PostReactions from '../components/PostReactions/PostReactions';
 import PostComments from '../components/PostComments/PostComments';
+import Header from '../components/Header/Header';
 
 const DetailPostPage = () => {
     const params = useParams();
@@ -21,7 +22,8 @@ const DetailPostPage = () => {
     },[]);
 
     return (
-        <>    
+        <>  
+        <Header />  
         <div className={`container p-3 ${styles.containerMain}`}>
             <div className='row'>
                 <div className='col-12 col-md-1'>
