@@ -1,51 +1,73 @@
-import React from "react";
-import Tags from "@yaireo/tagify/dist/react.tagify";
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import Tags from "@yaireo/tagify/dist/react.tagify"; // React-wrapper file
+import "@yaireo/tagify/dist/tagify.css"; // Tagify CSS
+import styles from "../tagify/tagify.module.scss"
 
 
-// ================= TAGFIELD ==================
-
-// Tagify settings object
 const baseTagifySettings = {
-  blacklist: [],
-  maxTags: 6,
-  backspace: "edit",
-  placeholder: "type something",
-  editTags: 1,
+  whitelist: ["Apex (Salesforce.com)", "Assembly language", "ASP.NET", "Bash", "Batch (Windows/Dos)", "C++ ", "C/AL", "C#", "Java", "Javascript", "MATLAB", "CSS", "HTML", "Ruby"],
   dropdown: {
-    enabled: 0
+    maxItems: 100,
+    classname: "tags-look",
+    enabled: 1,
+    closeOnSelect: false
   },
-  callbacks: {}
-};
-
-const Tagify= ({ label, name, initialValue = [], suggestions = [] })=>{
-  const handleChange = e => {
-    console.log(e.type, " ==> ", e.detail.tagify.value.map(item => item.value));
-  };
-
-  const settings = {
-    ...baseTagifySettings,
-    whitelist: suggestions,
-    callbacks: {
-      add: handleChange,
-      remove: handleChange,
-      blur: handleChange,
-      edit: handleChange,
-      invalid: handleChange,
-      click: handleChange,
-      focus: handleChange,
-      "edit:updated": handleChange,
-      "edit:start": handleChange
-    }
-  };
-
-  console.log("InitialValue", initialValue);
-
-  return (
-    <div className="form-group">
-      <label htmlFor={"field-" + name}>{label}</label>
-      <Tags settings={settings} initialValue={initialValue} />
-    </div>
-  );
+  enforceWhitelist: false,
+  maxTags: 4 ,
+  placeholder: "Add up to 4 tags",
 }
 
-export default Tagify
+const Tagify = () => {
+  const [tags, setTags] = useState('[]');
+  const [values, setValues] = useState({
+    title: '',
+    tags:'',
+    body:'',
+    imgUrl: '',
+  });
+
+  console.log('tags', JSON.parse(tags).map(t => t.value))
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const body = {
+      ...values,
+      tags: JSON.parse(tags).map(t => t.value),
+    }
+
+  //   const getUser = async () => {
+    
+      // const response = await fetch(`${APIURL}users/${tokenUserID}`, {
+      //     method: "GET",
+      //     headers: {
+      //     "Content-Type": "application/json"
+      //     }
+      // });
+      
+  //     const user = await response.json(); 
+  //     let userPost = user.data.user;
+  //     delete userPost.password;
+  //     delete userPost.savedPost;
+  
+  //     return userPost;
+  //  }
+    //fetch('', {body, method: 'POST'})
+    console.log('', { body, method: 'POST' })
+  }
+
+  return (
+    <div className={styles.tagifyProp}>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+          <Tags
+            settings={baseTagifySettings} // tagify settings object
+            defaultValue=""
+            onChange={(e) => { setTags(e.detail.value) }}
+          />
+        </Form.Group>
+      </Form>
+    </div>
+  )
+};
+
+export default Tagify;
