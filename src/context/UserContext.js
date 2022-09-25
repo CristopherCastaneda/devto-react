@@ -25,7 +25,7 @@ const UserProvider = ({ children }) => {
           });
         
           const jsonData = await response.json();          
-        
+          console.log(jsonData);
           if(!jsonData.success) {
             return false;
           } else {

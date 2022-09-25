@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { usePost } from '../../../context/PostContext';
+import { useLogedUser } from '../../../context/UserContext';
 import styles from "./CommentForm.module.scss";
 
-const CommentForm = ({comments, postId}) => {
+const CommentForm = () => {  
+
+    const { postData } = usePost();    
+    
     const [comment, setComment] = useState("");
-    const [display, setDisplay] = useState("d-none");
-    const token = localStorage.getItem("token") || "";
+    const [display, setDisplay] = useState("d-none");        
+    let token = localStorage.getItem("token") || "";
+    token = JSON.parse(token);
 
     const changeComment = (e) => {
         setComment(e.target.value);
@@ -30,6 +36,7 @@ const CommentForm = ({comments, postId}) => {
     }
 
     const handleSubmit = async (e) => {
+        
         e.preventDefault();
         try{
             const newComment = {
@@ -37,21 +44,21 @@ const CommentForm = ({comments, postId}) => {
                 content: comment,
                 date: new Date().toLocaleDateString()        
             }  
-            comments.push(newComment);
-            const response = await fetch(`https://devto-backend-nine.vercel.app/posts/${postId}`, {
+            postData.comments.push(newComment);      
+            const response = await fetch(`https://devto-backend-nine.vercel.app/posts/${postData._id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
+                    "Authorization": `Bearer ${token.token}`
                 },
-                body: JSON.stringify({comments: comments })
+                body: JSON.stringify({comments: postData.comments })
             });
             
             const posts = await response.json();
-            
+
             setTimeout(
                 function(){
-                    window.location.reload()
+                    this.forceUpdate();
                 },
              1500);
             
@@ -60,7 +67,7 @@ const CommentForm = ({comments, postId}) => {
             console.log(error);
         }  
     };
-
+  
   return (
     <div className="comments-container d-flex align-items-start gap-2">
         <div className={`${styles.commentsAvatar} rounded-circle`}>

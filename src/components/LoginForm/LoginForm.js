@@ -25,9 +25,9 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        const result = await login(email, password)
+        const result = await login(email, password);
         if (!result)
-            setError("Somehting wrong happened!");
+            setError("Something wrong happened!");
         else{
             setError(null);
             navigate("/");            

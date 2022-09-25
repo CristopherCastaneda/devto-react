@@ -5,14 +5,13 @@ const MobileMenu = ({show, handleClose}) => {
   return (
     <Offcanvas show={show} onHide={handleClose} className="d-md-none" responsive="md">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title>Title</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          Body
         </Offcanvas.Body>
     </Offcanvas>
   )
 }
 
-export default MobileMenu
+export default MobileMenu;
