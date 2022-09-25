@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MainCard from "../MainCard/MainCard";
+import PostCardHeader from "../PostCardHeader/PostCardHeader";
 
 const CardList = () => {
 
@@ -21,7 +21,7 @@ const CardList = () => {
             let postBanner= index ===0 ? post.post_banner : null;
             console.log("post", post)
             return (
-                <MainCard
+                <PostCardHeader 
                     id={_id}
                     key={_id}
                     userDescription= {user.descrption}
