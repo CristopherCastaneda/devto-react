@@ -1,8 +1,8 @@
 import React from 'react';
 import Footer from '../components/Footer/Footer';
-<<<<<<< HEAD
+import Header from '../components/Header/Header';
 import PostCardHome from '../components/PostCardHome/PostCardHome';
-import Header from '../components/Header/HeaderHome/Header';
+
 import PostReactions from '../components/PostReactions/PostReactions';
 import ReadNextList from '../components/ReadNextList/ReadNextList';
 import styles from "../Pages/Pages.module.scss";
@@ -14,7 +14,7 @@ const HomePage = () => {
 
     return (
         <>
-            <Header />
+            <Header/>
             <CreatePost/>
             <div className={`container p-3 ${styles.containerMain}`}>
                 <div className='row'>
@@ -37,17 +37,6 @@ const HomePage = () => {
 
         </>
     )
-=======
-import Header from '../components/Header/Header';
-
-const HomePage = () => {
-  return (
-    <>
-    <Header />
-    <Footer />  
-    </>
-  )
->>>>>>> 9d076bb42ef9f4210614874c5325edfec8abe5b4
 }
 
 export default HomePage
