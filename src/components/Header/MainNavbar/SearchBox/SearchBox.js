@@ -6,7 +6,7 @@ const SearchBox = () => {
         <div className={`${styles.search}`}>
             <div className={`input-group ${styles.searchGroup}`}>
                 <input type="text" id="input-desktop-search" className="form-control border-end-0" placeholder="Search..."
-                    ariaLabel="search" ariaDescribedBy="button-addon2" />
+                    arial-label="search" aria-describedby="button-addon2" />
                 <button className={`${styles.btn} btn-outline-secondary`} type="button" id="btn-desktop-search">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         aria-hidden="true" className="crayons-icon c-btn__icon" focusable="false">

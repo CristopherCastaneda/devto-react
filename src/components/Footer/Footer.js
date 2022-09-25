@@ -13,8 +13,7 @@ const Footer = () => {
                         </p>
                         <p>Built on the 
                             <a className="text-primary text-decoration-underline" href="https://www.forem.com/">Forem</a> 
-                            <a className="text-primary text-decoration-underline" href="https://www.forem.com/"> open source</a> software the powers 
-                            <a className="text-primary text-decoration-underline" href="https://dev.to/">DEV</a> and other inclusive communities.
+                            <a className="text-primary text-decoration-underline" href="https://www.forem.com/"> open source</a> software the powers <a className="text-primary text-decoration-underline" href="https://dev.to/">DEV</a> and other inclusive communities.
                         <br />
                         Made with love and <a className="text-primary text-decoration-underline" href="https://dev.to/t/rails">Ruby on Rails.</a> DEV Community © 2016 - 2022.
                         </p>
