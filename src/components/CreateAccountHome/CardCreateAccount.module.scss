@@ -1,4 +1,4 @@
-.formLogin{
+.CreateAccount{
     color: #171717;
     background-color: white;
     border-color: #1879da;
@@ -26,18 +26,15 @@
         border-color: transparent;
         text-decoration: none;
         width: 100%;
+        background-color: black;
         margin-top: 10px;
         svg{
             margin-right: 8px;
         }        
     }    
 }
-
-.forgotPassword{
-    color: #3b49df;
-    font-size: 0.875rem;
+.loginLink{
+    color:#1879da;
 }
 
-a{
-    color: #3b49df;
-}
+

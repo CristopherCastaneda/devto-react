@@ -1,0 +1,30 @@
+.helpPost{
+    h4{
+        font-size: 18px;;
+    }
+}
+
+.help-post-title {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+}
+.helpPostTags{
+    position: absolute;
+    top: 160px;
+    width: 100%;
+}
+.help-post-content {
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    a{
+        color: rgb(59,73,223);
+    }
+    table{
+        font-size: 14px;
+        background-color: rgb(255,255,255);
+        padding: 6px;
+        
+    }
+}
