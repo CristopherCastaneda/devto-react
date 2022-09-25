@@ -6,6 +6,10 @@ import { BrowserRouter } from 'react-router-dom';
 import UserProvider from "./context/UserContext";
 import PostProvider from './context/PostContext';
 
+
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <UserProvider>

@@ -24,4 +24,4 @@ const CardPostsListing = () => {
   )
 }
 
-export default CardPostsListing
+ export default CardPostsListing;

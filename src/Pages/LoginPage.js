@@ -1,4 +1,5 @@
 import React from 'react';
+import PostCreate from '../components/CardPostCreate/CardPostCreate';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import LoginForm from '../components/LoginForm/LoginForm';
@@ -15,6 +16,7 @@ const LoginPage = () => {
             </div>
             <div className="col-12 col-md-11 col-lg-8">
                 <LoginForm />
+                <PostCreate/>
             </div>
         </div>
     </div>
