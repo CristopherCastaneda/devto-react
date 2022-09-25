@@ -1,0 +1,26 @@
+.reactionsLeftContainer{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    flex-direction: row;
+    z-index: 999;
+    background: white;
+    box-shadow: 0 -1px 5px rgb(0 0 0 / 4%);
+    border-radius: 8px 8px 0 0;
+}
+
+@media only screen and (min-width: 767px){
+    .reactionsLeftContainer{ 
+        justify-content: end;
+        position: initial;
+        background-color: transparent;   
+        box-shadow: none;
+        position: -webkit-sticky;
+        position: sticky;
+        top: calc(60px + 16px);
+    }
+}

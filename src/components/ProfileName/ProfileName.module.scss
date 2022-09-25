@@ -1,0 +1,19 @@
+.textDecorationNone{
+    &:hover{
+        color: #171717;
+    }
+
+    a{
+        color: #000;
+        text-decoration: none;
+    }
+}
+
+.profileName{
+    height: 47px;
+    width: 230px;
+    
+    p.postDate{
+        font-size: 12px;
+    }
+}
