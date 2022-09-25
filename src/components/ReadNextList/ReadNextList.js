@@ -1,22 +1,15 @@
-import React, { useEffect, useState} from 'react';
+import React from 'react';
 import ReadNextListItem from './ReadNextListItem/ReadNextListItem';
 import Card from 'react-bootstrap/Card';
+import useFetch from '../../hooks/useFetch';
 
 const ReadNextList = () => {
-  const [posts, setPosts] = useState([]);
+  let posts = null;
+  const { data, error } = useFetch(`https://devto-backend-nine.vercel.app/posts`);
+  
+  if(!data) return (<div>No hay data</div>)   
 
-  useEffect(() => {
-      fetch("https://devto-backend-nine.vercel.app/posts")
-      .then((response) => response.json())
-      .then(posts => {            
-          setPosts(posts.data.posts);                     
-      })
-      .catch((error) => {
-          console.log("error", error);
-      });
-  }, []);
-
-
+  posts = data.data.posts;
   return (
     <Card className="p-2 p-md-3 mb-4">  
       <Card.Body>
