@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from "./CardCreateAccount.module.scss";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -12,6 +12,7 @@ const CreateAccount = () => {
     const [Location, setLocation] = useState("");
     const [Education, setEducation] = useState("");
     const [Description, setDescription] = useState("");
+    let navigate = useNavigate();
 
     const changeEmail = (e) => {
         setEmail(e.target.value);
@@ -56,9 +57,10 @@ const CreateAccount = () => {
             const jsonData = await response.json();
 
             if (!jsonData.success) {
-                alert("you entered your data wrong");
+                alert("You entered your data wrong");
             } else {
                 localStorage.setItem("token", jsonData.data.token);
+                navigate = "/";
             }
         }
         catch (error) {
@@ -88,7 +90,7 @@ const CreateAccount = () => {
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicEducation">
                                 <Form.Label>Education</Form.Label>
-                                <Form.Control type="text" defaultValue={Education} onChange={changeEducation} placeholder="city" />
+                                <Form.Control type="text" defaultValue={Education} onChange={changeEducation} placeholder="City" />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email</Form.Label>

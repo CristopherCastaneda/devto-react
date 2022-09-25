@@ -2,7 +2,6 @@ import React from 'react';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import PostCardHome from '../components/PostCardHome/PostCardHome';
-
 import PostReactions from '../components/PostReactions/PostReactions';
 import ReadNextList from '../components/ReadNextList/ReadNextList';
 import styles from "../Pages/Pages.module.scss";
