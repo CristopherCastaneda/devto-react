@@ -12,8 +12,8 @@ function App() {
         <Route path="/" element={<HomePage />}></Route>        
         <Route path="detail/:postId" element={<DetailPostPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/CreateAccount" element={<CreateAccountPage/>}/>
-        <Route path="/CreatePost" element={<CreatePostPage/>}/>
+        <Route path="/create-account" element={<CreateAccountPage/>}/>
+        <Route path="/create-post" element={<CreatePostPage/>}/>
       </Routes>
     </div>
   );
