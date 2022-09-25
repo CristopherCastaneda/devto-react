@@ -2,6 +2,8 @@ import DetailPostPage from "./Pages/DetailPostPage";
 import HomePage from "./Pages/HomePage";
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from "./Pages/LoginPage";
+import CreateAccountPage from "./Pages/CreateAccountPage";
+import CreatePostPage from "./Pages/CreatePostPage";
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
         <Route path="/" element={<HomePage />}></Route>        
         <Route path="detail/:postId" element={<DetailPostPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/CreateAccount" element={<CreateAccountPage/>}/>
+        <Route path="/CreatePost" element={<CreatePostPage/>}/>
       </Routes>
     </div>
   );

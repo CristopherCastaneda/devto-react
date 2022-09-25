@@ -1,0 +1,22 @@
+.postEditor {
+    background: white;
+    border: 1px solid #CCC;
+    border-radius: 8px;
+}
+.btnCoverPost{
+    border: 1px solid #d6d6d7;
+    box-shadow: rgba(0,0,0,.035);
+}
+.postEditorTitle{
+    width: 100%;
+    font-size: 36px;
+    border: none;
+    font-weight: bold;
+    &:focus-visible{
+        outline: none;
+    }
+}
+.imagePreviewContainer{
+    max-width: 300px;
+    height: auto;
+}
