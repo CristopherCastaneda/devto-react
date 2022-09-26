@@ -3,6 +3,7 @@ import CardList from '../components/PostCardContainer/CardList/CardList';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import styles from "../Pages/Pages.module.scss";
+import CardPostsListingHome from '../components/CardPostsListing/CardPostListingHome/CardPostsListingHome';
 
 
 
@@ -22,6 +23,7 @@ const HomePage = () => {
                     </div>
                     <div className='col-12 col-lg-3'>
                         <aside className={`aside-right p-0 ps-md-5 ps-lg-0 ${styles.detailAside}`}>
+                        <CardPostsListingHome/>
                         </aside>
                     </div>
                 </div>
