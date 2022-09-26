@@ -1,4 +1,5 @@
 import React from 'react';
+import CardList from '../components/PostCardContainer/CardList/CardList';
 import AsideLeft from '../components/AsideLeft/AsideLeft';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
@@ -18,7 +19,7 @@ const HomePage = () => {
                         </aside>
                     </div>
                     <div className='col-12 col-md-11 col-lg-8 '>
-                        
+                        <CardList/>
                     </div>
                     <div className='col-12 col-lg-3'>
                         <aside className={`aside-right p-0 ps-md-5 ps-lg-0 ${styles.detailAside}`}>

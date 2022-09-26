@@ -1,0 +1,23 @@
+.userName{
+    font-size: 14px;
+}
+.postDate{
+    font-size: 12px;
+}
+.cardText{
+    font-size: 20px;
+}
+
+h2 {
+
+    a {
+        text-decoration: none;
+        color:black;
+
+        &:hover {
+            background-color: rgba(23, 23, 23, .05);
+            color: #171717;
+        }
+    }
+}
+
