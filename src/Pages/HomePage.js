@@ -49,11 +49,7 @@ const HomePage = () => {
                         </aside>
                     </div>
                 </div>
-<<<<<<< HEAD
             </div>
-=======
-            </div>            
->>>>>>> 06886d72d3c3079c01c852a36db139f41c1c59e1
             <Footer />
 
         </>
