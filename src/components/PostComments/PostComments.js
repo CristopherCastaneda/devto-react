@@ -12,7 +12,7 @@ const PostComments = () => {
   const { user } = useLogedUser();
     
   return (
-    <section className="mb-4 p-3 p-md-5 border border-top-0">
+    <section className="card mb-4 p-3 p-md-5 border border-top-0">
           <div className="d-flex justify-content-between align-items-center mb-3">
               <h2> Discussion ({postData.comments.length})</h2>
 

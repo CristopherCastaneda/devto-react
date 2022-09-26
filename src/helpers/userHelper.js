@@ -1,9 +1,9 @@
 const key = 'token';
 
 export const getTokenLocalStorage = () => {
-  const token = localStorage.getItem(key);
-  if(token)    
-    return token;  
+  const user = localStorage.getItem(key);
+  if(user)    
+    return JSON.parse(user);  
   return null;
 }
 
@@ -32,3 +32,12 @@ export const getUserData = async (token) => {
   let userData = user.data.user;
   return userData;
 } 
+
+export const getUserPost = (userData) =>{ 
+        let token= userData.token      
+        delete userData.savedPost;
+        delete userData.token;
+
+        return { userData, token }
+        
+}

@@ -16,7 +16,6 @@ const LoginPage = () => {
             </div>
             <div className="col-12 col-md-11 col-lg-8">
                 <LoginForm />
-                <PostCreate/>
             </div>
         </div>
     </div>
