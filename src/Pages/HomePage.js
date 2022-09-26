@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import CardList from '../components/PostCardContainer/CardList/CardList';
+=======
+import AsideLeft from '../components/AsideLeft/AsideLeft';
+>>>>>>> f04b03fafa42f94cecb8279a6ea2720afb25c4c6
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import styles from "../Pages/Pages.module.scss";
@@ -26,8 +30,9 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
+            <AsideLeft/>
             <Footer />
-
+            
         </>
     )
 }

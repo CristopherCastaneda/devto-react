@@ -1,11 +1,11 @@
-.header{
+header{
     background-color: rgb(255,255,255);
     position: fixed;
     top: 0px;
     left: 0px;
     right: 0px;
+    height: 60px;
     z-index:9;
-
     nav{
         .logo{
             .navbar-brand{
@@ -96,7 +96,6 @@
         }
     }
 }
-
 ul.asideNavigationLinks{
     list-style: none;
     padding-left: 0;    
@@ -129,7 +128,7 @@ ul.asideNavigationLinks{
     }        
     span{
         height: 24px;
-        width: 20px;
+        width: 24px;
         vertical-align: text-bottom;
         display: inline-block;
         margin-right: 2px;
