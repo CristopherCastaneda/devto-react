@@ -1,33 +1,26 @@
 import React, { useEffect, useState } from "react";
+import useFetch from "../../../hooks/useFetch";
 import PostCard from "../PostCard/PostCard";
 
-
-
 const CardList = () => {
-
-    const [posts, setPosts] = useState([]);
-
-    useEffect(() => {
-        fetch("https://devto-backend-nine.vercel.app/posts")
-        .then((response) => response.json())
-        .then(posts => {
-            setPosts(posts.data.posts);
-        });
-    }, []);
-
-    console.log("post", posts)
+   
+    let posts = []
+    const { data, error } = useFetch(`https://devto-backend-nine.vercel.app/posts`);
+  
+    if(data)
+        posts = data.data.posts;    
+    
     return(
-    <div>
+    <>
         {posts.map((post, index) => {
             const {_id, user, tags, comments } = post;
             let showPostBanner= index ===0 
-            console.log("post", post)
             return (
                 <PostCard post= {post} key={_id} postBanner={showPostBanner} nComments={comments.length}
                 />
             );
         })}
-    </div>
+    </>
     )
 };
 

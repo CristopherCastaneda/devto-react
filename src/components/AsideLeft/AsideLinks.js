@@ -28,9 +28,8 @@ import CardsPromotionsShopForem from "./CardsPromotion/CardsPromotionsShopForem"
 
 const AsideLinks = () => {
   return (
-    <div className="col-12 col-md-3 col-lg-2 d-none d-md-block">
-      <aside className={`${styles.asideLeft}`}>
-        <nav className="mb-4 ">
+    <>
+    <nav className="mb-4 ">
           <ul className={`${styles.asideNavigationLinks}`}>
             <HomeItem />
             <ReadingListItem />
@@ -76,8 +75,7 @@ const AsideLinks = () => {
         <div className={`mb-4 ${styles.sponsorCard}`}>
           <CardsPromotionsCodeNewbie/>
         </div>
-      </aside>
-    </div>
+    </>
   );
 };
 

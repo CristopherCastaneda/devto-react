@@ -1,24 +1,13 @@
 import React from 'react';
 import { Card, Image } from 'react-bootstrap';
-//import { usePost } from '../../../context/PostContext';
 import CardPostsListingTags from '../../CardPostsListing/CardPostsListingTags/CardPostsListingTags';
 import styles from './PostCard.module.scss';
 import {Link} from "react-router-dom"
 import PostCardFooter from '../PostCardFooter/PostCardFooter';
-//import { useEffect } from 'react';
 
 const PostCard = ({post, postBanner}) => {
 
-const postData=post
-
-/*
-  const { postData, setPostData  } = usePost(); 
-  console.log(postData);
-
-  useEffect(()=>{
-    setPostData(post)
-  },[post]) 
- */
+const postData = post
   
   return (
     postData &&

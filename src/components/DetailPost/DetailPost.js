@@ -7,11 +7,10 @@ import styles from './DetailPost.module.scss';
 const DetailPost = () => {
 
   const { postData  } = usePost(); 
-  console.log(postData);
 
   return (
       <Card>
-          <Card.Img variant="top" src={postData.post_banner} />
+          {postData.post_banner && <Card.Img variant="top" src={postData.post_banner} />}
           <Card.Body className="p-3 p-md-5" >
               <div className="d-flex justify-content-between mb-3">
                   <div className="d-flex align-items-center mb-3">
@@ -30,8 +29,8 @@ const DetailPost = () => {
                         return <CardPostsListingTags tag={tag}/>
                     })}                
               </Card.Subtitle>
-             <Card.Text className={`${styles.cardText} mt-5`}>
-                    {postData.post_body}
+             <Card.Text className={`${styles.cardText} mt-5`}
+                    dangerouslySetInnerHTML={{__html: postData.post_body}}>
               </Card.Text>              
           </Card.Body>
       </Card>
