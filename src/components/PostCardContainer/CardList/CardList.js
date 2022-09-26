@@ -1,34 +1,49 @@
-<<<<<<< HEAD:src/components/PostCardContainer/CardList/CardList.js
 import React, { useEffect, useState } from "react";
-import PostCardHeader from "../PostCardHeader/PostCardHeader";
-=======
-// import React, { useEffect, useState } from "react";
-// import MainCard from "../MainCard/MainCard";
->>>>>>> 2969d6f5fe645f9ce36f74730d46f1a7ac46e208:src/components/CardList/CardList.js
+import PostCard from "../PostCard/PostCard";
 
-// const CardList = () => {
 
-//     const [posts, setPosts] = useState([]);
 
-//     useEffect(() => {
-//         fetch("https://devto-backend-nine.vercel.app/posts")
-//         .then((response) => response.json())
-//         .then(posts => {
-//             setPosts(posts.data.posts);
-//         });
-//     }, []);
+const CardList = () => {
 
-<<<<<<< HEAD:src/components/PostCardContainer/CardList/CardList.js
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        fetch("https://devto-backend-nine.vercel.app/posts")
+        .then((response) => response.json())
+        .then(posts => {
+            setPosts(posts.data.posts);
+        });
+    }, []);
+
     console.log("post", posts)
     return(
     <div>
         {posts.map((post, index) => {
             const {_id, user, tags, comments } = post;
-            let postBanner= index ===0 ? post.post_banner : null;
+            let showPostBanner= index ===0 
             console.log("post", post)
             return (
-                <PostCardHeader 
-                    id={_id}
+                <PostCard post= {post} key={_id} postBanner={showPostBanner} nComments={comments.length}
+                />
+            );
+        })}
+    </div>
+    )
+};
+
+export default CardList; 
+
+                {/*
+
+
+if('comments' in post){            
+            for(comment in post.comments)
+            {
+                countComments++;
+            }
+        }
+
+                    id={_id
                     key={_id}
                     userDescription= {user.descrption}
                     userName={user.user_name}
@@ -40,40 +55,4 @@ import PostCardHeader from "../PostCardHeader/PostCardHeader";
                     tags={[tags]}
                     readTime={post.read_time}
                     nComments={comments.length}
-                />
-            );
-        })}
-    </div>
-    )
-};
-=======
-//     console.log("post", posts)
-//     return(
-//     <div>
-//         {posts.map((post, index) => {
-//             const {_id, user, tags, comments } = post;
-//             let postBanner= index ===0 ? post.post_banner : null;
-//             console.log("post", post)
-//             return (
-//                 <MainCard
-//                     id={_id}
-//                     key={_id}
-//                     userDescription= {user.descrption}
-//                     userName={user.user_name}
-//                     userPhoto={user.profile_photo}
-//                     postBody={post.post_body}
-//                     postDate={post.post_date}
-//                     postTitle={post.post_title} 
-//                     postBanner={postBanner}
-//                     tags={[tags]}
-//                     readTime={post.read_time}
-//                     nComments={comments.length}
-//                 />
-//             );
-//         })}
-//     </div>
-//     )
-// };
->>>>>>> 2969d6f5fe645f9ce36f74730d46f1a7ac46e208:src/components/CardList/CardList.js
-
-// export default CardList; 
+                */}
