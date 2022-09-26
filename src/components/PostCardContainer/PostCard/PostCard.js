@@ -26,8 +26,8 @@ const postData = post
                       </div>
                   </div>
               </div>
-              <h2 className="ms-4"><Link to={`/detail/${postData._id}`}> {postData.post_title}</Link></h2>
-              <Card.Subtitle className="mb-2 text-muted d-flex gap-3 ms-4">                 
+              <h2 className="mt-3 ms-0 ms-md-4"><Link to={`/detail/${postData._id}`}> {postData.post_title}</Link></h2>
+              <Card.Subtitle className="mt-3 mb-2 text-muted d-flex gap-2 ms-0 ms-md-4">                 
                     {postData.tags.map((tag) => {
                         return <CardPostsListingTags tag={tag}/>
                     })}                

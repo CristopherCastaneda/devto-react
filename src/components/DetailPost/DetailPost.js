@@ -1,13 +1,16 @@
 import React from 'react';
 import { Card, Image } from 'react-bootstrap';
 import { usePost } from '../../context/PostContext';
+import { useLogedUser } from '../../context/UserContext';
 import CardPostsListingTags from '../CardPostsListing/CardPostsListingTags/CardPostsListingTags';
 import styles from './DetailPost.module.scss';
+import ManagePostButtons from './ManagePostButtons/ManagePostButtons';
 
 const DetailPost = () => {
 
-  const { postData  } = usePost(); 
-
+  const { postData  } = usePost();
+  const { user } = useLogedUser();  
+ 
   return (
       <Card>
           {postData.post_banner && <Card.Img variant="top" src={postData.post_banner} />}
@@ -22,6 +25,7 @@ const DetailPost = () => {
                           <p className={`${styles.postDate} m-0`}>{new Date(postData.post_date).toLocaleDateString("en-us",{ month: 'short', day: 'numeric' })}</p>
                       </div>
                   </div>
+                {user && <ManagePostButtons />}
               </div>
               <h1>{postData.post_title}</h1>
               <Card.Subtitle className="mb-2 text-muted d-flex gap-3">                 

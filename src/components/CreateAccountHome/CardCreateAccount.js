@@ -154,7 +154,7 @@ const CreateAccount = () => {
                             <div className="me-2">
                                 {photo && <Image src={photo} roundedCircle width="40" height="40" />}
                             </div>
-                            <input type="file" hidden ref={refer} onChange={handleUpload} />
+                            <input type="file" accept="image/*" hidden ref={refer} onChange={handleUpload} />
                             <Button variant="photo" onClick={() => handleClick()}>
                                 Add a profile photo
                             </Button>

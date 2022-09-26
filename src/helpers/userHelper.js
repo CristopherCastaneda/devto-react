@@ -32,3 +32,13 @@ export const getUserData = async (token) => {
   let userData = user.data.user;
   return userData;
 } 
+
+export const getUserPost = (user) =>{
+        let userData = JSON.parse(user);  
+        let token= userData.token      
+        delete userData.savedPost;
+        delete userData.token;
+
+        return { userData, token }
+        
+}
