@@ -15,14 +15,6 @@
     position: relative;
     width: 48px;
     height: 48px;
-    overflow: hidden;   
-    img{
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        height: 100%;
-        width: auto;
-        transform: translate(-50%, -50%);
-    }
+    overflow: hidden;       
 }
 

@@ -4,21 +4,26 @@ import CardPostsListingTags from '../../CardPostsListing/CardPostsListingTags/Ca
 import styles from './PostCard.module.scss';
 import {Link} from "react-router-dom"
 import PostCardFooter from '../PostCardFooter/PostCardFooter';
+import defaultAvatar from '../../../assets/dummy.png';
 
 const PostCard = ({post, postBanner}) => {
+
+const addDefaultSrc = (ev) => {
+    ev.target.src = defaultAvatar;
+}
 
 const postData = post
   
   return (
     postData &&
-      <Card className="p-2 p-md-3 mt-3" > 
+      <Card className="mt-3"> 
         {postBanner && 
         <Card.Img variant="top" src={postData.post_banner}/>}
-          <Card.Body className="p-0">
+          <Card.Body className="p-2 p-md-3">
               <div className="d-flex justify-content-between">
                   <div className="d-flex align-items-center mb-3">
                       <div className="main-profile">
-                          <Image roundedCircle width="40" height="40" src={postData.user.profile_photo} />
+                          <Image onError={addDefaultSrc} roundedCircle width="40" height="40" src={postData.user.profile_photo} />
                       </div>
                       <div className="mx-2">
                           <p className={`${styles.userName} mb-0`}>{postData.user.user_name}</p>

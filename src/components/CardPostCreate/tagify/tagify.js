@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Tags from "@yaireo/tagify/dist/react.tagify"; // React-wrapper file
 import "@yaireo/tagify/dist/tagify.css"; // Tagify CSS
-import styles from "../tagify/tagify.module.scss"
+import "./tagify.scss";
 
 
 const baseTagifySettings = {
@@ -17,13 +17,13 @@ const baseTagifySettings = {
   placeholder: "Add up to 4 tags",
 }
 
-const Tagify = ({changeTags, tags}) => {   
+const Tagify = ({changeTags, value}) => {   
 
   return (
-    <div className={styles.tagifyProp}>      
+    <div className="w-100 border-0">      
       <Tags
         settings={baseTagifySettings} // tagify settings object
-        defaultValue=""
+        defaultValue={value}
         onChange={changeTags}
       />        
     </div>

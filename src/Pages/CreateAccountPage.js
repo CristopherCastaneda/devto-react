@@ -8,9 +8,9 @@ const CreateAccountPage =()=>{
         <>
         <div className={`container p-3 ${styles.containerPost}`}>
         <div className='row'>
-            <div class="col-12 col-md-1">  
+            <div className="col-12 col-md-1">  
             </div>
-            <div class="col-12 col-md-11 col-lg-8">
+            <div className="col-12 col-md-11 col-lg-8">
                 <CreateAccount/>
             </div>
         </div>

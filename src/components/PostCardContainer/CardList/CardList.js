@@ -2,14 +2,17 @@ import React, { useEffect, useState } from "react";
 import useFetch from "../../../hooks/useFetch";
 import PostCard from "../PostCard/PostCard";
 
-const CardList = () => {
+const CardList = ({order}) => {
    
     let posts = []
     const { data, error } = useFetch(`https://devto-backend-nine.vercel.app/posts`);
   
-    if(data)
-        posts = data.data.posts;    
-    
+    if(data){
+        posts = data.data.posts;
+        if(order === "latest")
+        posts = posts.reverse();
+    }    
+        
     return(
     <>
         {posts.map((post, index) => {

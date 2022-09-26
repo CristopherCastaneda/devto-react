@@ -6,7 +6,7 @@ const GuidesItem = ()=>{
     return (
         <div>
             <li>
-              <a href="#" class={`${styles.asideNavigationLink}`}>
+              <a href="#" className={`${styles.asideNavigationLink}`}>
                 <span>
                   <img src={guidesIcon} alt="" />
                 </span>

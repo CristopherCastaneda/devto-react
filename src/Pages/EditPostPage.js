@@ -2,9 +2,16 @@ import React from "react";
 import Footer from "../components/Footer/Footer";
 import styles from "./Pages.module.scss";
 import PostCreate from "../components/CardPostCreate/CardPostCreate";
-import CardPostCreate from "../components/CardPostCreate/CardInstruccion/CardInstruccion";
+import { useParams } from "react-router";
+import useFetch from "../hooks/useFetch";
+import { useState } from "react";
 
-const CreatePost =()=>{
+const EditPost = () => {
+
+    const params = useParams();  
+    
+    const { data, error } = useFetch(`https://devto-backend-nine.vercel.app/posts/${params.postId}`);
+   
     return(
         <>
         <div className={`container p-3 ${styles.containerCreate}`}>
@@ -13,10 +20,7 @@ const CreatePost =()=>{
                
             </div>
             <div className="col-12 col-md-11 col-lg-8">
-                <PostCreate type="post" />
-            </div>
-            <div className="col-12 col-lg-3 d-none d-lg-block">
-                <CardPostCreate/>
+                {data && <PostCreate post={data?.data?.post} type="put"/> }
             </div>
         </div>
     </div>
@@ -26,4 +30,4 @@ const CreatePost =()=>{
     )
 }
 
-export default CreatePost
+export default EditPost

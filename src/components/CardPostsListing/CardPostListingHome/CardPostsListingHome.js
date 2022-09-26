@@ -1,59 +1,46 @@
 
-import { Card } from "react-bootstrap";
+import { Card, Spinner } from "react-bootstrap";
 import CardPostsListItem from "../CardPostsListItem/CardPostsListItem";
 import styles from "./CardPostsListingHome.module.scss";
 import React, { useEffect, useState } from "react";
+import useFetch from "../../../hooks/useFetch";
 
-const CardPostListingHome = () => {
-  const [posts, setPosts] = useState([]);
+const CardPostListingHome = ({title, seeAll}) => {
 
-  useEffect(() => {
-    fetch("https://devto-backend-nine.vercel.app/posts")
-      .then((response) => response.json())
-      .then((posts) => {
-        setPosts(posts.data.posts);
-      });
-  }, []);
+  let posts = null;
+  const { data, error } = useFetch(`https://devto-backend-nine.vercel.app/posts`);
+  
+  if(!data) return (
+    <Spinner animation="border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+  )   
 
-  console.log("post", posts);
+  posts = data.data.posts;
   return (
-    <div>
-      {posts.map((post, index) => {
-        const { _id, user, tags, comments } = post;
-        let showPostBanner = index === 0;
-        console.log("post", post);
-        return (
-          <Card className="border m-0 ms-md-2 ms-lg-0 mt-3">
-            <Card.Body>
-              <Card.Title className={styles.cardPostHeader}>
-                More from <a href="/#">{post.post_title}</a>
-              </Card.Title>
-              <Card.Text>
-                <ul className="list-unstyled">
-                  <CardPostsListItem
-                    title="Becoming a Better Developer Through Open Source"
-                    arrTags={["beginners", "opensource"]}
-                  />
-                  <CardPostsListItem
-                    title="That time I could not finish DevTo challenge"
-                    arrTags={["kodemia", "html", "css", "react"]}
-                  />
-                  <CardPostsListItem
-                    title="What's a fullstack dev anyway?"
-                    arrTags={["codenewbie", "koder"]}
-                  />
-                  <CardPostsListItem
-                    title="What's the best pokemon ever?"
-                    arrTags={["browsers", "discuss"]}
-                  />
-                </ul>
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        );
-      })}
-    </div>
-  );
+    <Card className="border m-0 ms-md-2 ms-lg-0 mt-3">
+      <Card.Body>
+        <div className="d-flex justify-content-between">
+          <Card.Title className={styles.cardPostHeader}>
+            {title}
+          </Card.Title>
+          {seeAll && <span className={styles.seeAll}>See All</span>}
+        </div>
+        <Card.Text>
+          <ul className="list-unstyled">
+            {posts.slice(0, 3).map((post, index) => {
+              return (
+                <CardPostsListItem
+                  title={post.post_title}
+                  arrTags={post.tags}
+                />);
+            })}
+
+          </ul>
+        </Card.Text>
+      </Card.Body>
+    </Card>  
+    );     
 };
 
 export default CardPostListingHome;
