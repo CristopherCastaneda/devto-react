@@ -1,5 +1,5 @@
 import React, { useState,  useRef  } from 'react';
-import { json, Link, useNavigate, useParams } from 'react-router-dom';
+import {  useNavigate} from 'react-router-dom';
 import styles from  "../CardPostCreate/CardPostCreate.module.scss"
 import Tagify from "./tagify/tagify"
 import QuillEditor from "./Toobar/Toolbar";
@@ -57,7 +57,6 @@ const PostCreate = ({post = {}, type }) => {
         e.preventDefault();
         if(!user) return;
         const { userData, token } = getUserPost(user);
-        console.log(tagsPost)
         let arrTags = JSON.parse(tagsPost).map(t => t.value); 
         
         if(type = "post"){
@@ -132,9 +131,9 @@ const PostCreate = ({post = {}, type }) => {
           post_body: e,
           read_time: Math.ceil(e.length / 150),
         });
-      };
+    };
 
-    return (
+        return (
         <>
         {errorPost && <Alert key="error" variant="danger">{errorPost}</Alert>}            
             <div className="card post-editor">

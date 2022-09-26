@@ -1,6 +1,5 @@
 import React from 'react';
 import CardList from '../components/PostCardContainer/CardList/CardList';
-import AsideLeft from '../components/AsideLeft/AsideLeft';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import styles from "../Pages/Pages.module.scss";
@@ -8,6 +7,7 @@ import CardPostsListingHome from '../components/CardPostsListing/CardPostListing
 import CardsPromotions from '../components/AsideLeft/CardsPromotion/CardsPromotions';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import AsideLeft from "../components/AsideLeft/AsideLeft";
 
 const HomePage = () => {
 
@@ -50,9 +50,9 @@ const HomePage = () => {
                         </aside>
                     </div>
                 </div>
-            </div>            
+            </div>
             <Footer />
-            
+
         </>
     )
 }

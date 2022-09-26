@@ -5,6 +5,7 @@ import LoginPage from "./Pages/LoginPage";
 import CreateAccountPage from "./Pages/CreateAccountPage";
 import CreatePostPage from "./Pages/CreatePostPage";
 import EditPost from "./Pages/EditPostPage";
+import SearchHome from "./Pages/SearchHome";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/create-account" element={<CreateAccountPage/>}/>
         <Route path="/create-post" element={<CreatePostPage/>}/>
+        <Route path="/search-home" element={<SearchHome/>}/>
       </Routes>
     </div>
   );
