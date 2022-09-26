@@ -23,14 +23,12 @@ import InstagramItem from "./Items/InstagramItem";
 import TwitchItem from "./Items/TwitchItem";
 import MyTags from "./Tags/MyTags";
 import MyTagsLinks from "./Tags/MyTagsLinks";
-import CardsPromotionsCodeNewbie from "./CardsPromotion/CardsPromotionsShopForem";
-import CardsPromotionsShopForem from "./CardsPromotion/CardsPromotionsShopForem";
+import CardsPromotions from "./CardsPromotion/CardsPromotions";
 
 const AsideLinks = () => {
   return (
-    <div className="col-12 col-md-3 col-lg-2 d-none d-md-block">
-      <aside className={`${styles.asideLeft}`}>
-        <nav className="mb-4 ">
+    <>
+    <nav className="mb-4 ">
           <ul className={`${styles.asideNavigationLinks}`}>
             <HomeItem />
             <ReadingListItem />
@@ -70,14 +68,25 @@ const AsideLinks = () => {
             <MyTagsLinks />
           </div>
         </nav>
-        <div className={`mb-4 ${styles.sponsorCard}`}>
-          <CardsPromotionsShopForem/>
-        </div>
-        <div className={`mb-4 ${styles.sponsorCard}`}>
-          <CardsPromotionsCodeNewbie/>
-        </div>
-      </aside>
-    </div>
+        
+          <CardsPromotions banner="https://res.cloudinary.com/practicaldev/image/fetch/s--fIs7T4ga--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://jess.forem.lol/remoteimages/uploads/articles/9ga7i09w99yubqm4fxrv.png"
+          title="<strong>Calling all early-career developers &amp; coding mentors!</strong>"
+          content={`<p>
+            Join CodeNewbie Community: a supportive space for coding newbies to
+            connect &amp; express themselves.{" "}
+            <strong>
+              <a href="#">Get in on the fun!</a>
+            </strong>
+          </p>`}
+          />
+          <CardsPromotions banner="https://res.cloudinary.com/practicaldev/image/fetch/s--vf_P4FwD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://p32.f1.n0.cdn.getcloudapp.com/items/OAu6mnD1/20ada628-9434-4772-a8e0-7d861713d3c4.jpg" 
+            title="The Forem Shop is Here!"
+            content={` <strong>
+            <a href="#">&gt;&gt; Shop Forem, DEV, and CodeNewbie merch</a>
+          </strong>`}
+          />          
+                
+    </>
   );
 };
 

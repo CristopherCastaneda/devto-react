@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import styles from "./LoginForm.module.scss";
-import SocialButtons from './SocialButtons/SocialButtons';
+import SocialButtons from '../SocialButtons/SocialButtons';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useLogedUser } from "../../context/UserContext";
@@ -11,7 +11,7 @@ const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
-    const {login} = useLogedUser()
+    const {login} = useLogedUser();
     let navigate = useNavigate(); 
 
     const changeEmail = (e) => {

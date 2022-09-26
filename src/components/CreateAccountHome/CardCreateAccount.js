@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState,  useRef  } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from "./CardCreateAccount.module.scss";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import SocialButtons from '../LoginForm/SocialButtons/SocialButtons';
+import SocialButtons from '../SocialButtons/SocialButtons';
+import storage  from "../../services/firebaseService";
+import { Image } from 'react-bootstrap';
+import 'firebase/storage';
+import { useLogedUser } from "../../context/UserContext";
+import Alert from 'react-bootstrap/Alert';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const CreateAccount = () => {
+       
+    const refer = useRef(null);
+    const [photo, setPhoto] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-    const [Location, setLocation] = useState("");
-    const [Education, setEducation] = useState("");
-    const [Description, setDescription] = useState("");
+    const [location, setLocation] = useState("");
+    const [education, setEducation] = useState("");
+    const [description, setDescription] = useState("");
+    const [error, setError] = useState(null);
+    let navigate = useNavigate(); 
 
+    const {login} = useLogedUser();
     const changeEmail = (e) => {
         setEmail(e.target.value);
     };
@@ -33,16 +45,41 @@ const CreateAccount = () => {
         setDescription(e.target.value);
     };
 
+    const handleClick = () => {
+        if (refer) {
+            refer.current.click();
+        }
+    };
+
+    const handleUpload = async (event) => {
+           
+        const uploadedFile = event?.target.files[0];
+        if (!uploadedFile) return;
+    
+        const name = +new Date() + "-" + uploadedFile.name;
+        
+        const storageRef = ref(storage, name);
+        uploadBytes(storageRef, uploadedFile).then((snapshot) => {
+            getDownloadURL(snapshot.ref).then((url) => {
+                setPhoto(url);
+            });
+          });       
+        
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const data = {
-                name: name,
-                Location: Location,
-                Education: Education,
+                user_name: name,
+                location: location,
+                education: education,
+                registration_date: new Date(),
                 email: email,
                 password: password,
-                Description: Description,
+                description: description,
+                savedPost: [],
+                profile_photo: photo || "https://picsum.photos/40/40"
             };
             // Fetch
             const response = await fetch(`https://devto-backend-nine.vercel.app/users`, {
@@ -54,11 +91,18 @@ const CreateAccount = () => {
             });
 
             const jsonData = await response.json();
-
+            console.log(jsonData)
             if (!jsonData.success) {
                 alert("you entered your data wrong");
             } else {
-                localStorage.setItem("token", jsonData.data.token);
+               //log user
+               const result = await login(email, password);
+               if (!result)
+                    setError("Something wrong happened!");
+                else{
+                    setError(null);
+                    navigate("/");            
+                }
             }
         }
         catch (error) {
@@ -67,6 +111,8 @@ const CreateAccount = () => {
     };
 
     return (
+        <>
+        {error && <Alert key="error" variant="danger">{error}</Alert>}
         <section className={styles.CreateAccount}>
             <div className="registration crayons-card">
                 <div className="registration_content">
@@ -84,11 +130,11 @@ const CreateAccount = () => {
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicLocation">
                                 <Form.Label>Location</Form.Label>
-                                <Form.Control type="text" defaultValue={Location} onChange={changeLocation} placeholder="Country" />
+                                <Form.Control type="text" defaultValue={location} onChange={changeLocation} placeholder="Country" />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicEducation">
                                 <Form.Label>Education</Form.Label>
-                                <Form.Control type="text" defaultValue={Education} onChange={changeEducation} placeholder="city" />
+                                <Form.Control type="text" defaultValue={education} onChange={changeEducation} placeholder="city" />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email</Form.Label>
@@ -100,12 +146,19 @@ const CreateAccount = () => {
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicDescriptionFY">
                                 <Form.Label>Description For You</Form.Label>
-                                <Form.Control type="text" defaultValue={Description} onChange={changeDescription} placeholder="" />
+                                <Form.Control type="text" defaultValue={description} onChange={changeDescription} placeholder="" />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Remember me" />
                             </Form.Group>
-                            <Button variant="primary" type="submit">
+                            <div className="me-2">
+                                {photo && <Image src={photo} roundedCircle width="40" height="40" />}
+                            </div>
+                            <input type="file" accept="image/*" hidden ref={refer} onChange={handleUpload} />
+                            <Button variant="photo" onClick={() => handleClick()}>
+                                Add a profile photo
+                            </Button>
+                            <Button variant="save" className={styles.saveButton} type="submit">
                                 Submit
                             </Button>
                         </Form>
@@ -113,6 +166,7 @@ const CreateAccount = () => {
                 </div>
             </div>
         </section>
+        </>
     )
 }
 

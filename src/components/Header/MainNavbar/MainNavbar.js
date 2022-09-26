@@ -42,8 +42,8 @@ const MainNavbar = ({ handleShow, handleShowSearch, showSearch, showMenu, handle
                 {showSearch && <div className={styles.mobileSearch}><SearchBox /></div>}
             </div>                       
             {!user ? <Link to="/login" className={`btn ${styles.btnLogin} d-none d-md-block`}>Log in</Link> : ""}
-            {!user ? <Link to="/" className={`${styles.btnCreateAccount} d-none d-md-block`} >Create Account</Link> : ""}
-            {user ? <Link to="/" className={`${styles.btnCreatePost} d-none d-md-block me-2`}>Create a Post</Link> :"" }
+            {!user ? <Link to="/create-account" className={`${styles.btnCreateAccount} d-none d-md-block`} >Create Account</Link> : ""}
+            {user ? <Link to="/create-post" className={`${styles.btnCreatePost} d-none d-md-block me-2`}>Create a Post</Link> :"" }
             {user ? <Notification /> : "" }
             {user ? <UserProfile username={user?.user_name} email={user?.email} photo={user?.profile_photo} handleShowMenu={handleShowMenu} showMenu={showMenu}/> : ""}
         </div>        

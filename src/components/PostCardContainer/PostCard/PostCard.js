@@ -1,35 +1,29 @@
 import React from 'react';
 import { Card, Image } from 'react-bootstrap';
-//import { usePost } from '../../../context/PostContext';
 import CardPostsListingTags from '../../CardPostsListing/CardPostsListingTags/CardPostsListingTags';
 import styles from './PostCard.module.scss';
 import {Link} from "react-router-dom"
 import PostCardFooter from '../PostCardFooter/PostCardFooter';
-//import { useEffect } from 'react';
+import defaultAvatar from '../../../assets/dummy.png';
 
 const PostCard = ({post, postBanner}) => {
 
-const postData=post
+const addDefaultSrc = (ev) => {
+    ev.target.src = defaultAvatar;
+}
 
-/*
-  const { postData, setPostData  } = usePost(); 
-  console.log(postData);
-
-  useEffect(()=>{
-    setPostData(post)
-  },[post]) 
- */
+const postData = post
   
   return (
     postData &&
-      <Card className="p-2 p-md-3 mt-3" > 
+      <Card className="mt-3"> 
         {postBanner && 
         <Card.Img variant="top" src={postData.post_banner}/>}
-          <Card.Body className="p-0">
+          <Card.Body className="p-2 p-md-3">
               <div className="d-flex justify-content-between">
                   <div className="d-flex align-items-center mb-3">
                       <div className="main-profile">
-                          <Image roundedCircle width="40" height="40" src={postData.user.profile_photo} />
+                          <Image onError={addDefaultSrc} roundedCircle width="40" height="40" src={postData.user.profile_photo} />
                       </div>
                       <div className="mx-2">
                           <p className={`${styles.userName} mb-0`}>{postData.user.user_name}</p>
@@ -37,8 +31,8 @@ const postData=post
                       </div>
                   </div>
               </div>
-              <h2 className="ms-4"><Link to={`/detail/${postData._id}`}> {postData.post_title}</Link></h2>
-              <Card.Subtitle className="mb-2 text-muted d-flex gap-3 ms-4">                 
+              <h2 className="mt-3 ms-0 ms-md-4"><Link to={`/detail/${postData._id}`}> {postData.post_title}</Link></h2>
+              <Card.Subtitle className="mt-3 mb-2 text-muted d-flex gap-2 ms-0 ms-md-4">                 
                     {postData.tags.map((tag) => {
                         return <CardPostsListingTags tag={tag}/>
                     })}                

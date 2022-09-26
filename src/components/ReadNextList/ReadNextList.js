@@ -2,12 +2,17 @@ import React from 'react';
 import ReadNextListItem from './ReadNextListItem/ReadNextListItem';
 import Card from 'react-bootstrap/Card';
 import useFetch from '../../hooks/useFetch';
+import { Spinner } from 'react-bootstrap';
 
 const ReadNextList = () => {
   let posts = null;
   const { data, error } = useFetch(`https://devto-backend-nine.vercel.app/posts`);
   
-  if(!data) return (<div>No hay data</div>)   
+  if(!data) return (
+    <Spinner animation="border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+  )   
 
   posts = data.data.posts;
   return (
