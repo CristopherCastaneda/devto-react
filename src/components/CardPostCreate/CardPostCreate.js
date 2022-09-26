@@ -1,10 +1,28 @@
-import React from "react"
+import React, {useState} from "react"
 import styles from "../CardPostCreate/CardPostCreate.module.scss"
 import Tagify from "./tagify/tagify"
 import Form from 'react-bootstrap/Form';
+import QuillEditor from "./Toobar/Toolbar";
 
+
+// import QuillEditor from "./Toobar/Toobar"
 
 const PostCreate = () => {
+
+    const [formData, setFormData] = useState({
+        postAuthor: "",
+        postImage: "",
+        postTitle: "",
+        postBody: "",
+      });
+
+    const handleQuill = (e) => {
+        setFormData({
+          ...formData,
+          postBody: e,
+          postTimeToRead: Math.ceil(e.length / 150),
+        });
+      };
 
     return (
         <>
@@ -18,12 +36,15 @@ const PostCreate = () => {
                             <label className={`btn ${styles.btnCoverPost}`}>Add a cover image</label>
                             <input id="post-editor-cover" type="file" accept="image/*" className="d-none" data-max-file-size-mb="25" />
                         </div>
-                        <input type="text" className="post-editor-title mb-3" placeholder="New post title here..." />
-                        <Tagify />
-                    
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Control as="textarea" rows={3} placeholder="Write your post content here..." />
-                        </Form.Group>
+                        <input type="text" className={`${styles.postEditorTitle } mb-3`} placeholder="New post title here..." />
+                        <Tagify /> 
+
+                        <QuillEditor
+                        name="postBody"
+                        value={formData.postBody}
+                        placeholder="Write your post content here.."
+                        onChange={handleQuill}
+                        />
                     </div>
                 </div>
                 <div className="result">
