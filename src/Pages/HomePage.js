@@ -1,4 +1,5 @@
 import React from 'react';
+import AsideLeft from '../components/AsideLeft/AsideLeft';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import styles from "../Pages/Pages.module.scss";
@@ -25,8 +26,9 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
+            <AsideLeft/>
             <Footer />
-
+            
         </>
     )
 }
