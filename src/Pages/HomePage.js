@@ -7,6 +7,7 @@ import CardPostsListingHome from '../components/CardPostsListing/CardPostListing
 import CardsPromotions from '../components/AsideLeft/CardsPromotion/CardsPromotions';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import AsideLeft from "../components/AsideLeft/AsideLeft";
 
 const HomePage = () => {
 

@@ -5,6 +5,7 @@ import LoginPage from "./Pages/LoginPage";
 import CreateAccountPage from "./Pages/CreateAccountPage";
 import CreatePostPage from "./Pages/CreatePostPage";
 import EditPost from "./Pages/EditPostPage";
+import SearchHome from "./Pages/SearchHome";
 
 function App() {
   return (

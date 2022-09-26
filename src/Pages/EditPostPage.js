@@ -4,7 +4,8 @@ import styles from "./Pages.module.scss";
 import PostCreate from "../components/CardPostCreate/CardPostCreate";
 import { useParams } from "react-router";
 import useFetch from "../hooks/useFetch";
-import { useState } from "react";
+import MainNavbarCreatePost from "../components/Header/MainNavbar/MainNavbarCreatePost";
+
 
 const EditPost = () => {
 
@@ -14,6 +15,7 @@ const EditPost = () => {
    
     return(
         <>
+        <MainNavbarCreatePost/>
         <div className={`container p-3 ${styles.containerCreate}`}>
         <div className='row'>
             <div className="col-12 col-md-1">

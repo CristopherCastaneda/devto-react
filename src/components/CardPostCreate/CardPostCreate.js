@@ -1,5 +1,5 @@
 import React, { useState,  useRef  } from 'react';
-import { json, Link, useNavigate, useParams } from 'react-router-dom';
+import {  useNavigate} from 'react-router-dom';
 import styles from  "../CardPostCreate/CardPostCreate.module.scss"
 import Tagify from "./tagify/tagify"
 import QuillEditor from "./Toobar/Toolbar";
@@ -57,7 +57,6 @@ const PostCreate = ({post = {}, type }) => {
         e.preventDefault();
         if(!user) return;
         const { userData, token } = getUserPost(user);
-        console.log(tagsPost)
         let arrTags = JSON.parse(tagsPost).map(t => t.value); 
         
         if(type = "post"){
@@ -134,36 +133,7 @@ const PostCreate = ({post = {}, type }) => {
         });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const data = {
-                Tagify:"",
-                Location: Location,
-
-            };
-            // Fetch
-            const response = await fetch(`https://devto-backend-nine.vercel.app/users`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
-
-            const jsonData = await response.json();
-
-            if (!jsonData.success) {
-                alert("you entered your data wrong");
-            } else {
-                localStorage.setItem("token", jsonData.data.token);
-            }
-        }
-        catch (error) {
-            console.log(error);
-        }
-    };
-    return (
+        return (
         <>
         {errorPost && <Alert key="error" variant="danger">{errorPost}</Alert>}            
             <div className="card post-editor">
