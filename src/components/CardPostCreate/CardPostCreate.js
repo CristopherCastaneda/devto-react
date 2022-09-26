@@ -28,12 +28,9 @@ const PostCreate = () => {
         e.preventDefault();
         try {
             const data = {
-                name: name,
+                Tagify:"",
                 Location: Location,
-                Education: Education,
-                email: email,
-                password: password,
-                Description: Description,
+
             };
             // Fetch
             const response = await fetch(`https://devto-backend-nine.vercel.app/users`, {

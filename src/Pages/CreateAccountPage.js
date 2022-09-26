@@ -2,10 +2,12 @@ import React from "react"
 import Footer from "../components/Footer/Footer"
 import CreateAccount from "../components/CreateAccountHome/CardCreateAccount"
 import styles from "./Pages.module.scss"
+import Header from "../components/Header/Header"
 
 const CreateAccountPage =()=>{
     return(
         <>
+        <Header/>
         <div className={`container p-3 ${styles.containerPost}`}>
         <div className='row'>
             <div class="col-12 col-md-1">  
