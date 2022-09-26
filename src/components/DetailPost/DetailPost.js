@@ -13,8 +13,7 @@ const DetailPost = () => {
   let { user } = useLogedUser(); 
   let showManageButtons = false;
 
-  if(user && postData){
-    user = JSON.parse(user)
+  if(user && postData){   
     if(user._id == postData.user._id)
         showManageButtons = true
   }

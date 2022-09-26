@@ -11,7 +11,8 @@ import UserProfile from './UserProfile/UserProfile';
 import { useLogedUser } from '../../../context/UserContext';
 
 const MainNavbar = ({ handleShow, handleShowSearch, showSearch, showMenu, handleShowMenu}) => {  
-  const { user } = useLogedUser();    
+  let { user } = useLogedUser();
+    
   return (
     <Navbar>
       <Container className="d-flex justify-content-between align-items-center">
