@@ -59,7 +59,7 @@ const PostCreate = ({post = {}, type }) => {
         const { userData, token } = getUserPost(user);
         let arrTags = JSON.parse(tagsPost).map(t => t.value); 
         
-        if(type = "post"){
+        if(type == "post"){
             
             try {
                 const newPost = {
@@ -94,7 +94,7 @@ const PostCreate = ({post = {}, type }) => {
                 console.log(error);
             }
         }
-        if(type = "put"){
+        if(type == "put"){
            //Create post object
            const updatedPost = {
                 post_title: formData.post_title,
