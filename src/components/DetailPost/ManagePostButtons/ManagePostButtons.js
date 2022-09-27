@@ -9,6 +9,7 @@ import styles from './ManagePostButtons.module.scss';
 const ManagePostButtons = ({postId}) => {
 
   const { user } = useLogedUser(); 
+  
   let [ error, setError ] = useState(null);
   let navigate = useNavigate();   
   
@@ -19,12 +20,14 @@ const ManagePostButtons = ({postId}) => {
     if (confirmBox === true) {
       try {
         if(!user) return;
-        const { token } = getUserPost(user);
+        
+        let token = localStorage.getItem("token") || "";
+        token = JSON.parse(token);
 
         const response = await fetch(`https://devto-backend-nine.vercel.app/posts/${postId}`, {
           method: "DELETE",
           headers: {
-            "Authorization": `Bearer ${token}`
+            "Authorization": `Bearer ${token.token}`
           }
         });
 
