@@ -57,6 +57,8 @@ const PostCreate = ({post = {}, type }) => {
         e.preventDefault();
         if(!user) return;
         const { userData, token } = getUserPost(user);
+        let tokenLS = localStorage.getItem("token") || "";
+        tokenLS = JSON.parse(tokenLS);
         let arrTags = JSON.parse(tagsPost).map(t => t.value); 
         
         if(type == "post"){
@@ -77,7 +79,7 @@ const PostCreate = ({post = {}, type }) => {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
+                        "Authorization": `Bearer ${tokenLS.token}`
                     },
                     body: JSON.stringify(newPost)
                 });
