@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 import { usePost } from '../../../context/PostContext';
 import { useLogedUser } from '../../../context/UserContext';
 import styles from "./CommentForm.module.scss";
@@ -7,10 +8,11 @@ import styles from "./CommentForm.module.scss";
 const CommentForm = () => {  
 
     const { postData } = usePost();    
-    
+    let navigate = useNavigate();  
     const [comment, setComment] = useState("");
     const [display, setDisplay] = useState("d-none");        
     let token = localStorage.getItem("token") || "";
+    
     token = JSON.parse(token);
 
     const changeComment = (e) => {
@@ -58,7 +60,7 @@ const CommentForm = () => {
 
             setTimeout(
                 function(){
-                    this.forceUpdate();
+                    navigate(`/detail/${postData._id}`);
                 },
              1500);
             
